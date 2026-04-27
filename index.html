@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Leap Career Studio — Study Abroad Mentorship</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://calendly.com">
+<link rel="dns-prefetch" href="https://calendly.com">
+<link rel="preload" href="https://assets.calendly.com/assets/external/widget.js" as="script">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -331,45 +334,50 @@
   }
 
   .services-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 0;
+    display: flex;
+    flex-direction: column;
     border-top: 1px solid rgba(175,203,218,0.15);
   }
 
   .service-item {
-    padding: 3rem 0;
-    border-bottom: 1px solid rgba(175,203,218,0.1);
-    position: relative;
+    padding: 3.5rem 0;
+    border-bottom: 1px solid rgba(175,203,218,0.12);
+    display: grid;
+    grid-template-columns: 80px 1fr 2fr;
+    gap: 0 4rem;
+    align-items: start;
     cursor: default;
-    transition: padding-left 0.3s;
+    transition: opacity 0.2s;
   }
+  .service-item:hover { opacity: 0.85; }
 
   .service-item:hover { }
 
   .service-num {
     font-family: var(--serif);
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--pastel);
-    opacity: 0.9;
-    margin-bottom: 1rem;
+    opacity: 0.8;
     font-style: italic;
+    padding-top: 0.4rem;
   }
 
   .service-name {
     font-family: var(--serif);
-    font-size: 2.1rem;
-    font-weight: 500;
+    font-size: 2.2rem;
+    font-weight: 400;
     color: #fff;
-    margin-bottom: 0.85rem;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
   }
 
   .service-desc {
     font-size: 1.05rem;
-    line-height: 1.75;
-    color: rgba(255,255,255,0.82);
+    line-height: 1.8;
+    color: rgba(255,255,255,0.78);
     font-weight: 300;
-    max-width: 300px;
+    padding-top: 0.3rem;
+    max-width: 560px;
   }
 
   /* PROBLEM */
@@ -743,7 +751,10 @@
     .steps { grid-template-columns: 1fr 1fr; }
     .steps::before { display: none; }
     .approach { grid-template-columns: 1fr; }
-    .services-list { grid-template-columns: 1fr; }
+    .services-list { flex-direction: column; }
+    .service-item { grid-template-columns: 40px 1fr; grid-template-rows: auto auto; gap: 0.5rem 1.5rem; }
+    .service-desc { grid-column: 2; }
+
     .nav-links { display: none; }
   }
 
@@ -764,6 +775,7 @@
     transform: translateY(0);
   }
 </style>
+<script src="https://assets.calendly.com/assets/external/widget.js"></script>
 </head>
 <body>
 
@@ -964,7 +976,7 @@
   <p>© 2024 Renna Sadarangani · Leap Career Studio</p>
 </footer>
 
-<script async src="https://assets.calendly.com/assets/external/widget.js"></script>
+<!-- calendly script moved to head -->
 <script>
   // Scroll animations
   const observer = new IntersectionObserver((entries) => {
