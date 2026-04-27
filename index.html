@@ -7,7 +7,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://calendly.com">
 <link rel="dns-prefetch" href="https://calendly.com">
-<link rel="preload" href="https://assets.calendly.com/assets/external/widget.js" as="script">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -311,7 +310,7 @@
   /* SERVICES */
   .services {
     background: var(--navy-deep);
-    padding: 10vw 10vw;
+    padding: 7vw 10vw;
     position: relative;
     overflow: hidden;
   }
@@ -319,7 +318,7 @@
   /* LEAP watermark removed */
 
   .services-header {
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
   }
 
   .services-header .section-label { color: var(--pastel); opacity: 0.7; }
@@ -340,44 +339,41 @@
   }
 
   .service-item {
-    padding: 3.5rem 0;
+    padding: 1.8rem 0;
     border-bottom: 1px solid rgba(175,203,218,0.12);
     display: grid;
-    grid-template-columns: 80px 1fr 2fr;
-    gap: 0 4rem;
-    align-items: start;
+    grid-template-columns: 48px 1fr 1.6fr;
+    gap: 0 3rem;
+    align-items: center;
     cursor: default;
-    transition: opacity 0.2s;
   }
-  .service-item:hover { opacity: 0.85; }
 
   .service-item:hover { }
 
   .service-num {
-    font-family: var(--serif);
-    font-size: 1rem;
+    font-family: var(--sans);
+    font-size: 0.7rem;
     color: var(--pastel);
-    opacity: 0.8;
-    font-style: italic;
-    padding-top: 0.4rem;
+    opacity: 0.6;
+    letter-spacing: 0.1em;
   }
 
   .service-name {
     font-family: var(--serif);
-    font-size: 2.2rem;
-    font-weight: 400;
+    font-size: 1.4rem;
+    font-weight: 500;
     color: #fff;
-    letter-spacing: -0.01em;
-    line-height: 1.15;
+    letter-spacing: 0;
+    line-height: 1.2;
+    white-space: nowrap;
   }
 
   .service-desc {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: rgba(255,255,255,0.78);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.6);
     font-weight: 300;
-    padding-top: 0.3rem;
-    max-width: 560px;
+    max-width: 480px;
   }
 
   /* PROBLEM */
@@ -775,7 +771,6 @@
     transform: translateY(0);
   }
 </style>
-<script src="https://assets.calendly.com/assets/external/widget.js"></script>
 </head>
 <body>
 
@@ -839,7 +834,7 @@
   <div class="services-list">
     <div class="service-item fade-up">
       <div class="service-num">01</div>
-      <div class="service-name">1:1 Career Clarity Sessions</div>
+      <div class="service-name">1-1 Career Clarity Sessions</div>
       <div class="service-desc">Understand what you truly want before deciding where to go. A session designed around you, not a checklist.</div>
     </div>
     <div class="service-item fade-up">
@@ -960,7 +955,7 @@
   <h2>Ready to find your clarity?</h2>
   <p>Book a free kickstart call with Renna — no pressure, no pitch. Just a real conversation.</p>
   <div class="calendly-wrapper">
-    <div class="calendly-inline-widget" data-url="https://calendly.com/renna-sadarangani/kickstart-your-journey-with-leap" style="min-width:320px;height:700px;"></div>
+    <div id="calendly-embed" style="min-width:320px;height:700px;"></div>
   </div>
 </section>
 
@@ -976,7 +971,7 @@
   <p>© 2024 Renna Sadarangani · Leap Career Studio</p>
 </footer>
 
-<!-- calendly script moved to head -->
+
 <script>
   // Scroll animations
   const observer = new IntersectionObserver((entries) => {
@@ -991,6 +986,26 @@
   }, { threshold: 0.15 });
 
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+<script>
+  function initCalendly() {
+    if (typeof Calendly !== 'undefined') {
+      Calendly.initInlineWidget({
+        url: 'https://calendly.com/renna-sadarangani/kickstart-your-journey-with-leap',
+        parentElement: document.getElementById('calendly-embed'),
+        prefill: {},
+        utm: {}
+      });
+    } else {
+      setTimeout(initCalendly, 200);
+    }
+  }
+
+  // Load script dynamically then init
+  var s = document.createElement('script');
+  s.src = 'https://assets.calendly.com/assets/external/widget.js';
+  s.onload = function() { initCalendly(); };
+  document.head.appendChild(s);
 </script>
 </body>
 </html>
