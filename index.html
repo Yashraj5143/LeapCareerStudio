@@ -159,7 +159,7 @@
   .hero-sub {
     font-size: 1rem;
     line-height: 1.75;
-    color: rgba(255,255,255,0.65);
+    color: rgba(255,255,255,0.82);
     max-width: 420px;
     margin-bottom: 3rem;
     font-weight: 300;
@@ -212,11 +212,15 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     min-height: 80vh;
+    gap: 0;
   }
 
   .story-img {
     position: relative;
     overflow: hidden;
+    margin: 0;
+    padding: 0;
+    display: block;
   }
 
   .story-img img {
@@ -227,6 +231,9 @@
     display: block;
     filter: grayscale(10%);
     transition: filter 0.5s;
+    margin: 0;
+    padding: 0;
+    vertical-align: bottom;
   }
 
   .story-img:hover img { filter: grayscale(0%); }
@@ -263,11 +270,11 @@
   }
 
   .story-body p {
-    font-size: 1rem;
+    font-size: 1.1rem;
     line-height: 1.9;
-    color: #445568;
+    color: #2e3f52;
     margin-bottom: 1.4rem;
-    font-weight: 300;
+    font-weight: 400;
   }
 
   .story-body p strong {
@@ -305,19 +312,7 @@
     overflow: hidden;
   }
 
-  .services::before {
-    content: 'LEAP';
-    position: absolute;
-    right: -2%;
-    top: 50%;
-    transform: translateY(-50%);
-    font-family: var(--serif);
-    font-size: 20vw;
-    font-weight: 600;
-    color: rgba(255,255,255,0.02);
-    pointer-events: none;
-    user-select: none;
-  }
+  /* LEAP watermark removed */
 
   .services-header {
     margin-bottom: 5rem;
@@ -349,7 +344,7 @@
     transition: padding-left 0.3s;
   }
 
-  .service-item:hover { padding-left: 1rem; }
+  .service-item:hover { }
 
   .service-num {
     font-family: var(--serif);
@@ -362,16 +357,16 @@
 
   .service-name {
     font-family: var(--serif);
-    font-size: 1.6rem;
+    font-size: 2rem;
     font-weight: 400;
     color: #fff;
     margin-bottom: 0.75rem;
   }
 
   .service-desc {
-    font-size: 0.88rem;
+    font-size: 1rem;
     line-height: 1.7;
-    color: rgba(255,255,255,0.45);
+    color: rgba(255,255,255,0.7);
     font-weight: 300;
     max-width: 280px;
   }
@@ -452,9 +447,9 @@
   }
 
   .approach-right p {
-    font-size: 1rem;
+    font-size: 1.05rem;
     line-height: 1.9;
-    color: rgba(255,255,255,0.6);
+    color: rgba(255,255,255,0.82);
     margin-bottom: 1.4rem;
     font-weight: 300;
   }
@@ -485,8 +480,8 @@
 
   .pillar-text {
     font-family: var(--serif);
-    font-size: 1.15rem;
-    color: rgba(255,255,255,0.85);
+    font-size: 1.25rem;
+    color: rgba(255,255,255,0.95);
   }
 
   /* PROCESS */
@@ -556,15 +551,15 @@
 
   .step-title {
     font-family: var(--serif);
-    font-size: 1.15rem;
+    font-size: 1.35rem;
     font-weight: 500;
     color: var(--navy);
     margin-bottom: 0.6rem;
   }
 
   .step-desc {
-    font-size: 0.85rem;
-    color: var(--text-muted);
+    font-size: 1rem;
+    color: #4a5e72;
     line-height: 1.6;
   }
 
@@ -606,10 +601,10 @@
 
   .testi-quote {
     font-family: var(--serif);
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-style: italic;
     line-height: 1.75;
-    color: rgba(255,255,255,0.75);
+    color: rgba(255,255,255,0.9);
     margin-bottom: 2rem;
   }
 
